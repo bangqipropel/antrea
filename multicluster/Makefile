@@ -55,7 +55,8 @@ vet: ## Run go vet against code.
 	go vet ./...
 
 .PHONY: test
-test: golangci
+test: golangci fmt vet ## Run tests.
+	$(CURDIR)/verify_kind.sh
 
 ##@ Build
 
