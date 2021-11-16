@@ -1374,8 +1374,8 @@ rules:
 - apiGroups:
   - admissionregistration.k8s.io
   resourceNames:
-  - antrea-multicluster-mutating-webhook-configuration
-  - antrea-multicluster-validating-webhook-configuration
+  - antrea-multicluster-kube-system-mutating-webhook-configuration
+  - antrea-multicluster-kube-system-validating-webhook-configuration
   resources:
   - mutatingwebhookconfigurations
   - validatingwebhookconfigurations
@@ -1790,7 +1790,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: antrea
-  name: antrea-multicluster-mutating-webhook-configuration
+  name: antrea-multicluster-kube-system-mutating-webhook-configuration
 webhooks:
 - admissionReviewVersions:
   - v1
@@ -1904,7 +1904,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: antrea
-  name: antrea-multicluster-validating-webhook-configuration
+  name: antrea-multicluster-kube-system-validating-webhook-configuration
 webhooks:
 - admissionReviewVersions:
   - v1
