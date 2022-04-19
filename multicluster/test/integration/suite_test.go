@@ -193,7 +193,6 @@ func configureClusterSet() {
 			Namespace: LeaderNamespace,
 			Name:      "local-cluster-id",
 		},
-		Name:  "id.k8s.io",
 		Value: LocalClusterID,
 	}
 	clusterSetIDClaim := &mcsv1alpha2.ClusterClaim{
@@ -201,7 +200,6 @@ func configureClusterSet() {
 			Namespace: LeaderNamespace,
 			Name:      "clusterset-id",
 		},
-		Name:  "clusterSet.k8s.io",
 		Value: clusterSetID,
 	}
 	clusterSet := &mcsv1alpha1.ClusterSet{
