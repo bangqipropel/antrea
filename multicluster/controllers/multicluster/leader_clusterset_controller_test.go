@@ -31,6 +31,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
 
 	mcsv1alpha1 "antrea.io/antrea/multicluster/apis/multicluster/v1alpha1"
+	mcsv1alpha2 "antrea.io/antrea/multicluster/apis/multicluster/v1alpha2"
 	"antrea.io/antrea/multicluster/controllers/multicluster/common"
 )
 
@@ -65,14 +66,13 @@ func TestLeaderClusterSetAdd(t *testing.T) {
 			Namespace: "mcs1",
 		},
 	}
-	existingClusterClaimList := &mcsv1alpha1.ClusterClaimList{
-		Items: []mcsv1alpha1.ClusterClaim{
+	existingClusterClaimList := &mcsv1alpha2.ClusterClaimList{
+		Items: []mcsv1alpha2.ClusterClaim{
 			{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "clustersetid",
 					Namespace: "mcs1",
 				},
-				Name:  mcsv1alpha1.WellKnownClusterClaimClusterSet,
 				Value: "clusterset1",
 			},
 			{
@@ -80,7 +80,6 @@ func TestLeaderClusterSetAdd(t *testing.T) {
 					Name:      "clusterid",
 					Namespace: "mcs1",
 				},
-				Name:  mcsv1alpha1.WellKnownClusterClaimID,
 				Value: "leader1",
 			},
 		},

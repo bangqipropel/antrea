@@ -38,6 +38,7 @@ import (
 	k8smcsv1alpha1 "sigs.k8s.io/mcs-api/pkg/apis/v1alpha1"
 
 	multiclusterv1alpha1 "antrea.io/antrea/multicluster/apis/multicluster/v1alpha1"
+	multiclusterv1alpha2 "antrea.io/antrea/multicluster/apis/multicluster/v1alpha2"
 	multiclustercontrollers "antrea.io/antrea/multicluster/controllers/multicluster"
 	antreacrd "antrea.io/antrea/pkg/apis/crd/v1alpha1"
 	"antrea.io/antrea/pkg/apiserver/certificate"
@@ -60,6 +61,7 @@ func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 	utilruntime.Must(k8smcsv1alpha1.AddToScheme(scheme))
 	utilruntime.Must(multiclusterv1alpha1.AddToScheme(scheme))
+	utilruntime.Must(multiclusterv1alpha2.AddToScheme(scheme))
 	utilruntime.Must(antreacrd.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
@@ -154,7 +156,7 @@ func setupManagerAndCertController(o *Options) (manager.Manager, error) {
 	}).SetupWithManager(mgr); err != nil {
 		return nil, fmt.Errorf("error creating ClusterClaim controller: %v", err)
 	}
-	if err = (&multiclusterv1alpha1.ClusterClaim{}).SetupWebhookWithManager(mgr); err != nil {
+	if err = (&multiclusterv1alpha2.ClusterClaim{}).SetupWebhookWithManager(mgr); err != nil {
 		return nil, fmt.Errorf("error create ClusterClaim webhook: %v", err)
 	}
 

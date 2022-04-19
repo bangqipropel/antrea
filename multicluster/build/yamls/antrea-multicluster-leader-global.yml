@@ -16,7 +16,7 @@ spec:
     singular: clusterclaim
   scope: Namespaced
   versions:
-  - name: v1alpha1
+  - name: v1alpha2
     schema:
       openAPIV3Schema:
         description: ClusterClaim is the Schema for the clusterclaims API

@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	multiclusterv1alpha1 "antrea.io/antrea/multicluster/apis/multicluster/v1alpha1"
+	multiclusterv1alpha1 "antrea.io/antrea/multicluster/apis/multicluster/v1alpha2"
 )
 
 // ClusterClaimReconciler reconciles a ClusterClaim object
